@@ -8,10 +8,16 @@ using namespace std;
 
 Arv_bin * cria_uma_arvore_arbitraria();
 
+void BFS(Arv_bin *arv);
+
 int main () {
 	//Exemplo de criação de uma árvore binária:
 	Arv_bin *arv = cria_uma_arvore_arbitraria();
+	BFS(arv);
+	arv_libera(arv);
+}
 
+void BFS(Arv_bin *arv) {
 	queue<Nodo *> fila;
 	Nodo *corr = NULL;
 
@@ -26,8 +32,6 @@ int main () {
 		if (corr->dir!=NULL)
 			fila.push(corr->dir);
 	}
-
-	arv_libera(arv);
 }
 
 Arv_bin * cria_uma_arvore_arbitraria() {
